@@ -7,14 +7,43 @@ __Version:__ {{ cookiecutter.version }}
 
 ## Getting up and running
 
-Minimum requirements: **pip, fabric, python3{% if cookiecutter.add_celery.lower() == 'y' %}, redis{% endif %} & [postgres][install-postgres]{% if cookiecutter.postgis == 'y' %} with postgis{% endif %}**, setup is tested on Mac OSX only.
+**Install Minimum requirements:**
+* [pip][install-pip]
+* [postgres][install-postgres]{% if cookiecutter.postgis == 'y' %} with postgis{% endif %}
+* [fabric][fab]
+* [python(version=3.x)][python3-docs]
+
+{% if cookiecutter.add_celery == 'y' %}* [Celery][install-celery]{% endif %}
+
+{% if cookiecutter.add_celery.lower() == 'y' %}* [redis][install-redis]{% endif %}
+
+
+On Mac OSX:
 
 ```
 brew install postgres python3
 [sudo] pip install fabric
 ```
 
-[install-postgres]: http://www.gotealeaf.com/blog/how-to-install-postgresql-on-a-mac
+On Ubuntu:
+
+```
+[sudo] apt-get update
+[sudo] apt-get install postgresql postgresql-contrib python3
+[sudo] pip install fabric3
+```
+
+[install-postgres]: https://www.postgresql.org/docs/current/static/install-short.html
+
+[python3-docs]: https://docs.python.org/3/
+
+[fab]: http://www.fabfile.org/installing.html
+
+[install-pip]: https://pip.pypa.io/en/stable/installing/
+
+[install-celery]: http://www.celeryproject.org/install/
+
+[install-redis]: https://redis.io/topics/quickstart
 
 In your terminal, type or copy-paste the following:
 
